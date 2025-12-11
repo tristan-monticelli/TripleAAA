@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard système</title>
+    <meta http-equiv="refresh" content="15">
+    <link rel="stylesheet" href="template.css">
+</head>
+<body>
+
+    <h1>Dashboard système</h1>
+    <p class="small">Page actualisée automatiquement toutes les 15 secondes.</p>
+
+    <section>
+        <h2>CPU</h2>
+        <p>Nombre de cœurs : <strong>{{CPU_CORES}}</strong></p>
+        <p>Fréquence actuelle : <strong>{{CPU_FREQ}} MHz</strong></p>
+        <p>Utilisation CPU : <strong>{{CPU_USAGE}} %</strong></p>
+    </section>
+
+    <section>
+        <h2>RAM</h2>
+        <p>RAM utilisée : <strong>{{RAM_USED}} GB</strong></p>
+        <p>RAM totale : <strong>{{RAM_TOTAL}} GB</strong></p>
+        <p>Utilisation RAM : <strong>{{RAM_PERCENT}} %</strong></p>
+    </section>
+
+    <section>
+        <h2>Système</h2>
+        <p>Heure de démarrage : <strong>{{BOOT_TIME}}</strong></p>
+        <p>Nombre d'utilisateurs connectés : <strong>{{NB_USERS}}</strong></p>
+        <p>Nom d'hôte : <strong>{{HOSTNAME}}</strong></p>
+        <p>Système d'exploitation : <strong>{{OS}}</strong></p>
+        <p>Distribution : <strong>{{DISTRO}}</strong></p>
+        <p>Adresse IP : <strong>{{IP_ADDR}}</strong></p>
+    </section>
+
+    <section>
+        <h2>Top 3 des processus (CPU)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>CPU (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{TOP_CPU_ROWS}}
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Top 3 des processus (RAM)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>RAM (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{TOP_RAM_ROWS}}
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Analyse du dossier : {{FOLDER_PATH}}</h2>
+        <p>Total fichiers trouvés : <strong>{{FILES_TOTAL}}</strong></p>
+        <ul>
+            {{FILES_LIST}}
+        </ul>
+    </section>
+
+</body>
+</html>
