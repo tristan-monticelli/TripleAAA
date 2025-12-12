@@ -1,0 +1,55 @@
+# --- Fichiers Python ---
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# --- Environnements virtuels ---
+venv/
+env/
+.virtualenv/
+.venv/
+
+# --- Builds / distributions ---
+build/
+dist/
+*.egg-info/
+*.egg
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Configs locales / secrets ---
+*.env
+*.ini
+*.cfg
+*.local
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb
+
+# --- Tests ---
+.coverage
+.tox/
+pytest_cache/
+
+# --- IDE / éditeurs ---
+# VSCode
+.vscode/
+# PyCharm / IntelliJ
+.idea/
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# --- Systèmes ---
+.DS_Store
+Thumbs.db
+
+# --- Autres fichiers superflus ---
+*.tmp
+*.bak
+*.swp
