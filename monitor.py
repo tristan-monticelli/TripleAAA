@@ -13,19 +13,19 @@ OUTPUT_CSS = "/var/www/html/template.css"
 
 def infosystem():
 
-    # CPU ---
+    # CPU
     cpu_cores = psutil.cpu_count(logical=True)
     cpu_frequency = psutil.cpu_freq().current
     cpu_usage = psutil.cpu_percent(interval=1)
 
-    # RAM ---
+    # RAM
     mem = psutil.virtual_memory()
     usedram = mem.used / (1024**3)
     allram = mem.total / (1024**3)
     allcpu= f"{cpu_frequency/1000}GHZ "if cpu_frequency else"N/A"
     percentram = mem.percent
 
-    # système ---
+    # système
     hostname = socket.gethostname()
     system = platform.system()
     distribution = distro.name() if system == "Linux" else "inconnue"
@@ -67,7 +67,7 @@ def infosystem():
         mem_p = proc.get('memory_percent') or 0
         top_ram_rows += f"<tr><td>{name}</td><td>{mem_p:.2f}</td></tr>\n"
 
-    # fichiers ---
+    # fichiers
     folder_path = "/home"
     extensions = [".txt", ".py", ".pdf", ".jpg"]
     counts = {ext: 0 for ext in extensions}
@@ -99,6 +99,7 @@ def infosystem():
     html = html.replace("{{RAM_PERCENT}}", f"{percentram:.1f}")
 
     html = html.replace("{{BOOT_TIME}}", boottime_datetime.strftime("%d-%m-%Y %H:%M:%S"))
+    html = html.replace("{{CURRENT_TIME}}", datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S"))
     html = html.replace("{{NB_USERS}}", str(len(nb_users)))
     html = html.replace("{{HOSTNAME}}", hostname)
     html = html.replace("{{OS}}", system)
